@@ -37,13 +37,16 @@ Checkout Completo Com Sucesso
     Fazer Login
     Adicionar Produto Ao Carrinho
     Acessar Carrinho
+    Wait Until Element Is Visible    id=checkout
     Click Element    id=checkout
     Wait Until Element Is Visible    id=first-name
     Input Text    id=first-name    Ivan
     Input Text    id=last-name    Ferreira
     Input Text    id=postal-code    70000000
-    Click Button    id=continue
-    Wait Until Element Is Visible    id=finish
+    Wait Until Element Is Visible    id=continue
+    Click Element    id=continue
+    Capture Page Screenshot    checkout_overview.png
+    Wait Until Element Is Visible    id=finish    timeout=15s
     Click Button    id=finish
     Wait Until Element Is Visible    class=complete-header
     Element Text Should Be    class=complete-header    Thank you for your order!
@@ -52,7 +55,9 @@ Checkout Sem Preencher Campos
     Fazer Login
     Adicionar Produto Ao Carrinho
     Acessar Carrinho
+    Wait Until Element Is Visible    id=checkout
     Click Element    id=checkout
+    Wait Until Element Is Visible    id=continue
     Click Button    id=continue
     Wait Until Element Is Visible    class=error-message-container
     Element Should Be Visible    class=error-message-container
